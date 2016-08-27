@@ -16,5 +16,6 @@
 		echo "{$value['precio']}<br>";
 	}
 	?>
+	
 </body>
 </html>
