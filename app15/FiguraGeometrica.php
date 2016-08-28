@@ -1,33 +1,26 @@
 <?php 
-abstract public class FiguraGeometrica extends AnotherClass
+abstract class FiguraGeometrica
 {
+	public function __construct()
+	{
+		
+	}
+	//CAMPOS
 	protected $_color;
 	protected $_perimetro;
 	protected $_superficie;
-
-	function __construct($valor)
-	{
-		$this->_color = $valor;
-	}
-	function CalcularDatos()
-	{
-
-	}
-	function Dibujar()
-	{
-
-	}
-	function GetColor()
+	//METODOS
+	abstract protected function CalcularDatos();
+	abstract public function Dibujar();
+	public function GetColor()
 	{
 		return $this->_color;
 	}
-	function SetColor($valor)
+	public function SetColor($valor)
 	{
 		$this->_color = $valor;
 	}
-	function ToString()
+	public function ToString()
 	{
-
 	}
 }
-?>
