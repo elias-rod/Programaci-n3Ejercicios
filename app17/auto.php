@@ -8,7 +8,7 @@ class Auto
 	private $_fecha;
 
 	//MÉTODOS
-	function __construct($color = 'Negro', $precio = 10.5, $marca = 'Ford', $fecha = new DateTime())
+	function __construct($marca, $color, $precio = 'sin determinar', $fecha = 'sin determinar')
 	{
 		$this->_color = $color;
 		$this->_precio = $precio;
@@ -21,10 +21,10 @@ class Auto
 	}
 	public static function MostrarAuto($auto)
 	{
+		echo "El auto es de marca: $auto->_marca<br>";
 		echo "El auto es de color: $auto->_color<br>";
 		echo "El auto sale: $auto->_precio<br>";
-		echo "El auto es de marca: $auto->_marca<br>";
-		echo "El auto es del año: $auto->_fecha->format('Y')<br>";
+		echo is_string($auto->_fecha) ? 'El auto es del año: ' . $auto->_fecha : 'El auto es del año: ' . $auto->_fecha->format('Y') . '<br>';
 	}
 	public static function Equals($auto1, $auto2)
 	{
@@ -32,9 +32,9 @@ class Auto
 	}
 	public static function Add($auto1, $auto2)
 	{
-		if(Equals($auto1, $auto2) && $auto1->_color == $auto2->_color)
+		if(Auto::Equals($auto1, $auto2) && $auto1->_color == $auto2->_color)
 			return $auto1->_precio + $auto2->_precio;
 		else
-			echo 'Los autos son distintos por lo que no se pueden sumar';
+			echo 'Los autos son distintos por lo que no se pueden sumar.<br>';
 	}
 }
